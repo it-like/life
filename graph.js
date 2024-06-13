@@ -12,7 +12,7 @@ class Graph {
 
     addEdge(node, neighbour){
         this.AdjList.get(node).push(neighbour);
-        this.AdjList.get(neighbour).push(node);
+
     }
 
     printGraph(){
@@ -28,33 +28,26 @@ class Graph {
             
         }
     }
+    displayGraph() {
+        const container = document.getElementById('graph-container');
+        this.AdjList.forEach((edges, vertex) => {
+            let nodeElement = document.createElement('div');
+            nodeElement.className = 'node';
+            nodeElement.textContent = vertex;
+            container.appendChild(nodeElement);
+        });
+
+    }
+
 }
 
 
 
-var vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
+var vertices = [ 'G', 'U', 'S', 'T', 'A', 'V' ];
 var g = new Graph(vertices.length);
 // adding vertices
 for (var i = 0; i < vertices.length; i++) {
     g.addVertex(vertices[i]);
 }
 
-// adding edges
-g.addEdge('A', 'B');
-g.addEdge('A', 'D');
-g.addEdge('A', 'E');
-g.addEdge('B', 'C');
-g.addEdge('D', 'E');
-g.addEdge('E', 'F');
-g.addEdge('E', 'C');
-g.addEdge('C', 'F');
-
-// prints all vertex and
-// its adjacency list
-// A -> B D E
-// B -> A C
-// C -> B E F
-// D -> A E
-// E -> A D F C
-// F -> E C
-g.printGraph();
+g.displayGraph();

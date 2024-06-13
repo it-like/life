@@ -1,0 +1,19 @@
+/*styles.css */
+
+#graph-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.node{
+    display: inline;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: lightblue;
+    text-align: center;
+    background: 1px solid black;
+}
+

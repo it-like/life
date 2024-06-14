@@ -3,12 +3,12 @@
 
 
 // Class for creating deck with cards, .txt-> .JSON
-class CreateDeckWithCards{
+class CreateCards{
 
 
   constructor(path){
-    this.TxtPath = 'flashcards/deck/TXTFiles/' + path + '.txt';
-    this.jsonPath = 'flashcards/deck/JSONFiles/' + path + '.json';
+    this.TxtPath = 'flashcards/decks/TXTFiles/' + path + '.txt';
+    this.jsonPath = 'flashcards/decks/JSONFiles/' + path + '.json';
     this.createCards();
   }
 
@@ -53,6 +53,6 @@ class CreateDeckWithCards{
 };
 
 
-new CreateDeckWithCards('geometrical_vectors');
-new CreateDeckWithCards('Quotes');
+new CreateCards('geometrical_vectors');
+new CreateCards('Quotes');
 

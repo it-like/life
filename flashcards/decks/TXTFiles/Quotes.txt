@@ -1,5 +1,5 @@
 #separator:tab
-#html:false
+#html:true
 #deck column:1
 #tags column:4
 Quotes	In statu nascendi	In the process of being invented	

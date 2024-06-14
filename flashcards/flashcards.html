@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script> <!-- Library for LaTeX -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anki Cards Display</title>
+<link rel="stylesheet" type="text/css" href="flashcards.css">
+</head>
+<body>
+<a href="../index.html">Hub</a> <!--'..' to go up in hierarchy --> 
+
+<div id="cardsContainer"></div>
+
+<script>
+  fetch("../flashcards/deck/JSONFiles/cards.json") // '..' to go up in hierarchy
+    .then(response => response.json()) // Convert the response to JSON
+    .then(cards => {
+      const container = document.getElementById('cardsContainer');
+      cards.forEach(card => { 
+        const cardElement = document.createElement('div');
+        cardElement.className = 'card';
+        cardElement.innerHTML = `<h3>${card.term}</h3><p>${card.definition}</p>`;
+        container.appendChild(cardElement);
+      });
+  
+      MathJax.typesetPromise() // Render equations
+      .then(() => {
+        console.log('Equations have been rendered.');
+      }).catch(err => console.error('Error typesetting equations:', err));
+    })
+    .catch(error => console.error('Error loading the cards:', error));
+  </script>
+  
+  
+</body>
+</html>

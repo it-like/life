@@ -1,0 +1,6 @@
+#separator:tab
+#html:false
+#deck column:1
+#tags column:4
+Quotes	In statu nascendi	In the process of being invented	
+Quotes	Archimedes lever	"Give me a lever long enough and a fulcrum on which to place it, and I shall move the world"	Obsidian_to_Anki

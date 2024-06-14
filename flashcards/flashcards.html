@@ -4,34 +4,54 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script> <!-- Library for LaTeX -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anki Cards Display</title>
 <link rel="stylesheet" type="text/css" href="flashcards.css">
 </head>
 <body>
+<h1>Anki Cards Display</h1>
 <a href="../index.html">Hub</a> <!--'..' to go up in hierarchy --> 
 
+
+<div id="mainContainer"></div> <!-- Main container to hold all card containers -->
 <div id="cardsContainer"></div>
 
-<script>
-  fetch("../flashcards/deck/JSONFiles/cards.json") // '..' to go up in hierarchy
-    .then(response => response.json()) // Convert the response to JSON
-    .then(cards => {
-      const container = document.getElementById('cardsContainer');
-      cards.forEach(card => { 
-        const cardElement = document.createElement('div');
-        cardElement.className = 'card';
-        cardElement.innerHTML = `<h3>${card.term}</h3><p>${card.definition}</p>`;
-        container.appendChild(cardElement);
-      });
-  
-      MathJax.typesetPromise() // Render equations
-      .then(() => {
-        console.log('Equations have been rendered.');
-      }).catch(err => console.error('Error typesetting equations:', err));
-    })
-    .catch(error => console.error('Error loading the cards:', error));
+
+  <script>
+    const path = 'flashcards/deck/JSONFiles/';
+    
+    const jsonFiles = [
+        "geometrical_vectors.json",
+        "Quotes.json"
+    ];
+    const mainContainer = document.getElementById('mainContainer');
+
+    jsonFiles.forEach((file, index) => {
+        fetch('../'+path+file)
+            .then(response => response.json())
+            .then(cards => {
+              const heading = document.createElement('h2');
+              heading.textContent = 'NEW DECK OF CARDS'; // Set the text content of the heading
+              mainContainer.appendChild(heading); // Append the heading to the main container
+              const container = document.createElement('div');
+                container.id = `cardsContainer${index}`;
+                container.className = 'cards-container';
+                mainContainer.appendChild(container);
+
+                cards.forEach(card => {
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'card';
+                    cardElement.innerHTML = `<h3>${card.term}</h3><p>${card.definition}</p>`;
+                    container.appendChild(cardElement);
+                });
+
+                MathJax.typesetPromise()
+                    .then(() => {
+                        console.log('Equations have been rendered.');
+                    }).catch(err => console.error('Error typesetting equations:', err));
+            })
+            .catch(error => console.error('Error loading cards from:', file, error));
+    });
   </script>
-  
+
   
 </body>
 </html>

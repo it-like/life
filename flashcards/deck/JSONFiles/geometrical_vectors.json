@@ -89,7 +89,12 @@
     "definition": "Med samma logik som skalärprodukt så kvarstår nu alla de termerna som försvann vid skalärprodukt (ty sin, cos), vilket lämnar en utfaktorisering av varje enhetsvektor:<br>&nbsp;\\(e_x(y1z2 -y2z1), e_y(z1x2 - z2x1), e_z(x1y2 - x2y1)\\)",
     "tags": ""
   },
-
+  {
+    "category": "Mathematics::Algebra::Linjär Algebra::1 - Geometriska vektorer",
+    "term": "Skriv linjens ekvation på parameterform",
+    "definition": "\"<img src=\"\"paste-172aab1551540156e17f3d611af23b3b3f84dd52.jpg\"\">\"",
+    "tags": ""
+  },
   {
     "category": "Mathematics::Algebra::Linjär Algebra::1 - Geometriska vektorer",
     "term": "Visa ekvationen för en linje i planet på normalform om&nbsp;\\(y= kx + m\\)",

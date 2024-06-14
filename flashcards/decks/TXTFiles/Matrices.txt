@@ -1,0 +1,16 @@
+#separator:tab
+#html:false
+#deck column:1
+#tags column:4
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definitionen av en matris	En (reellvärd) matris är ett rektangulärt fält med reella tal. En matris sägs vara av typ \(m \times n\) om den har \(m\) rader och \(n\) kolumner. \(A =\begin{pmatrix}  a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33} \end{pmatrix}\)där \(a_{ij} \in \mathbb{R}\) \(i\) motsvarar rader och \(j\) kolumner.	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definiera addition av två matriser	Låt \(A,B\) vara två matriser av samma typ (samma dimensioner). Summan av matris \(A+ B\) definieras då som: \(A+B = C\) \(c_{ij} = a_{ij} + b_{ij}\) Addera respektive element i A och B.	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definiera produkten mellan två matriser \(A,B\)	Antag att matriserna består av kolonnvektorer: \(A = (a_1 \space a_2 \space a_3) \) och \(B = (b_1 \space b_2 \space b_3)\) Då ges multiplikationen av de som: \(AB=  (Ab_1 \space Ab_2 \space Ab_3)\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Förklara begreppet symmetrisk matris	En matris som är identisk med dess transponat,  \(A = A^t\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Vad är transponatet av en matris	En matrix \(m \times n\) \(\implies n \times m\) Exempelvis \(\begin{pmatrix} 0_{11} & 1_{12}\\ 2_{21} & 3_{22}\\ 4_{31} & 5_{32} \end{pmatrix}^T\)\(\implies\)\(\begin{pmatrix} 0_{11} & 2_{12} & 4_{13} \\ 1_{21} & 3_{22} & 5_{23} \end{pmatrix}\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Determinantens\( (\det(A))\) definition för en \((2\times2)=A \) matris.	\(\det(A) = \begin{vmatrix}  a & b \\  c & d \end{vmatrix} = ad -bc\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Avgör om \((u,v,w)\) är höger eller vänsterorienterad där \(u = (1,0,2), v= (2,3,1), w=(2,1,1)\)	Se tecknet på determinanten! Positivt \(\implies\)högerorienterat!	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Beskriv \(\det(A)\)med hjälp av kryssprodukt och skalärprodukt då  \(A = (\vec{u} \space \vec{v} \space \vec{w})\)	\(\det(A) = (u \times v) \cdot w\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definitionen av en matrisidentitet	En \(n \times n\) matris \(I\) är en identitet om \(IA = AI\) för alla \(n \times n\) matriser A. \(\begin{pmatrix}1 & 0\newline 0 & 1 \end{pmatrix}\)är identitetsmatrisen för \(I_2\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definitionen av en matrisinvers.	Om \(I\) är en identitet till matrisen \(A\) då är \(B\) matrisinversen till \(A\) omm. \(AB = BA = I\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	Vad är identitetsmatrisen för två och tredimensionella matriser?	\(I_2 = (e_x \space e_y)= \begin{pmatrix} 1 & 0 \newline 0  & 1 \end{pmatrix} \), \(I_3 = (e_x \space e_y \space e_z) = \begin{pmatrix} 1 & 0 & 0 \newline 0 & 1  & 0 \newline 0 & 0 & 1\end{pmatrix}\)	
+Mathematics::Algebra::Linjär Algebra::2 - Matriser	När en \(2 \times 2\) matris har en invers (\(A^{-1}\)), och om den existerar, vad är den då (antaget att \(A = \begin{pmatrix}a & b \newline c & d\end{pmatrix}\))	Då dess determinant är nollskild. Om den existerar så är den: \(A^{-1} = \frac{1}{\det{(A)}} \begin{pmatrix}d & -b\newline -c & a\end{pmatrix}\) Dvs, byt diagonalen, negera resterande och dividera med dess determinant.	

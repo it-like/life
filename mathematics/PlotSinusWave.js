@@ -22,7 +22,8 @@ function plotSine(ctx, x=0){
     
     
     if (x>=width){
-        return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        x = 0
     };
     var y = height/2 + amplitude*Math.sin(x/frequency);
 
@@ -33,7 +34,7 @@ function plotSine(ctx, x=0){
         ctx.lineTo(x,y)
     }
     ctx.stroke();
-    setTimeout(() => plotSine(ctx, x = x+1), 10);
+    setTimeout(() => plotSine(ctx, x = x+1),2);
 
 }
 

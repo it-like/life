@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']] // Ensure inline mode is correctly set
-            },
-            startup: {
-                ready: function () {
-                    MathJax.startup.defaultReady();
-                    console.log('MathJax is ready!');
-                }
-            }
-        };
-    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script> <!-- Library for LaTeX -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +13,8 @@
 
 <div id="mainContainer"></div> <!-- Main container to hold all card containers -->
 <div id="cardsContainer"></div>
-<script src="DisplayCards.js"></script> 
+content += `<h3 onclick="toggleVisibility('${id}')" style="cursor: pointer;">${key}</h3>`;
 
-  
+<script src="logic/DisplayCards.js" defer></script>   
 </body>
 </html>

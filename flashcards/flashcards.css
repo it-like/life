@@ -48,17 +48,16 @@ body {
     color: #333333;
 }
 
-.card b {
+.card cf{
     
     line-height: 1;
-    color: white;
+    color: black;
     text-align: center;
 }
 
-.card c {
-    
+.card cb{
     line-height: 1; 
-    color: black;
+    color: white;
     text-align: left;
 }
 

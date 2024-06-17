@@ -17,7 +17,7 @@ class DisplayCards {
                     const container = document.createElement('div');
                     container.className = 'cards-container';
                     this.mainContainer.appendChild(container);
-                    
+                     
                     cards.forEach(card => {
                         const cardElement = this.createCardElement(card);
                         container.appendChild(cardElement);

@@ -9,7 +9,6 @@ class DisplayCards {
     }
 
     async createDisplay() {
-        console.log(this.path + this.files[0] + '.json')
         await Promise.all(this.files.map(file => 
             fetch(this.path + file + '.json')
                 .then(response => response.json())

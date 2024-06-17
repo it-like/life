@@ -22,7 +22,7 @@ function plotSine(ctx, x=0){
     
     
     if (x>=width){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // reset canvas
         x = 0
     };
     var y = height/2 + amplitude*Math.sin(x/frequency);

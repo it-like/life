@@ -11,17 +11,24 @@
 <link rel="stylesheet" href="styles.css">
 
 </head>
-<body style="background-color:orange;">
+<body style="background-color:orange;", onload="displayLastUpdated()">
 <div id="name_container""></div>
 <div id="main_hub">
     <a href="mathematics/mathematics.html">Mathematics</a>
     <h2> </h2>
     <a href="flashcards/flashcards.html">Flashcards</a>
+    <p id="footer_last_updated"></p>
+    <div id="lastUpdatedContainer">
+        Last updated: <span id="lastUpdated"></span>
+      </div>
 </div>
 
 
 
 
 <script src = "print_name.js"></script>
+<script>function displayLastUpdated(){
+    document.getElementById("lastUpdated").textContent = document.lastModified;
+}</script>
 </body>
 </html> 

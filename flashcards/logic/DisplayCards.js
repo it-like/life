@@ -9,12 +9,12 @@ class DisplayCards {
     }
 
     async createDisplay() {
+        console.log(this.path + this.files[0] + '.json')
         await Promise.all(this.files.map(file => 
             fetch(this.path + file + '.json')
                 .then(response => response.json())
                 .then(cards => {
                     this.hierarchyPaths.push(this.createHierarchy(cards));
-                    console.log(this.path + file + '.json')
                     const container = document.createElement('div');
                     container.className = 'cards-container';
                     this.mainContainer.appendChild(container);

@@ -2,7 +2,7 @@ class DisplayCards {
     
     constructor() {
         this.path = './decks/JSONFiles/';
-        this.files = ["Geometrical_Vectors", "Quotes", "Matrices"];
+        this.files = ["GeometricalVectors", "Quotes", "Matrices"];
         this.mainContainer = document.getElementById('mainContainer');
         this.hierarchyPaths = [];
         this.createDisplay().then(() => this.createHierarchyTree());  // this shit took forever to find

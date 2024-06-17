@@ -45,6 +45,6 @@ class CreateCards {
 
 }
 
-new CreateCards('Geometrical_Vectors');
+new CreateCards('GeometricalVectors');
 new CreateCards('Quotes');
 new CreateCards('Matrices');

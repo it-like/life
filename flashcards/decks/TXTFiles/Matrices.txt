@@ -1,5 +1,5 @@
 #separator:tab
-#html:false
+#html:true
 #deck column:1
 #tags column:4
 Mathematics::Algebra::Linjär Algebra::2 - Matriser	Definitionen av en matris	En (reellvärd) matris är ett rektangulärt fält med reella tal. En matris sägs vara av typ \(m \times n\) om den har \(m\) rader och \(n\) kolumner. \(A =\begin{pmatrix}  a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33} \end{pmatrix}\)där \(a_{ij} \in \mathbb{R}\) \(i\) motsvarar rader och \(j\) kolumner.	

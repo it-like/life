@@ -1,8 +1,8 @@
 class CreateCards {
 
   constructor(path) {
-      this.TxtPath = '../../flashcards/decks/TXTFiles/' + path + '.txt';
-      this.jsonPath = '../../flashcards/decks/JSONFiles/' + path + '.json';
+      this.TxtPath = '../decks/TXTFiles/' + path + '.txt';
+      this.jsonPath = '../decks/JSONFiles/' + path + '.json';
       this.createCards();
   }
 

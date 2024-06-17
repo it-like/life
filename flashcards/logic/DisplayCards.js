@@ -1,7 +1,7 @@
 class DisplayCards {
     
     constructor() {
-        this.path = '../../flashcards/decks/JSONFiles/';
+        this.path = './decks/JSONFiles/';
         this.files = ["Geometrical_Vectors", "Quotes", "Matrices"];
         this.mainContainer = document.getElementById('mainContainer');
         this.hierarchyPaths = [];

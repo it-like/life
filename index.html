@@ -21,7 +21,7 @@
 
 
     <div id="lastUpdatedContainer"> <!-- Div to reach container (#) logic in css-->
-         Last updated: <span id="lastUpdated"></span>  <!--p creates <br>-->
+         Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
     </div>
 </div>
 
@@ -29,6 +29,8 @@
 
 
 <script src = "print_name.js"></script>
-<script>function displayLastUpdated(){document.getElementById("lastUpdated").textContent = document.lastModified;}</script>
+<script>function displayLastUpdated(){
+    document.getElementById("lastUpdated").textContent = document.lastModified;
+    }</script>
 </body>
 </html> 

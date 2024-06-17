@@ -34,7 +34,7 @@ function plotSine(ctx, x=0){
     ctx.stroke();
     ctx.lineTo(canvasCenterX, canvasCenterY*2);
     ctx.stroke();
-    setTimeout(() => plotSine(ctx, x = x+2),1);
+    setTimeout(() => plotSine(ctx, x = x+0.1),1);
 }
 
 function unitCircle (ctx,xPos, yPos, timeout, phi = Math.PI ){

@@ -14,7 +14,7 @@ class DisplayCards {
                 .then(response => response.json())
                 .then(cards => {
                     this.hierarchyPaths.push(this.createHierarchy(cards));
-                    
+                    console.log(this.path + file + '.json')
                     const container = document.createElement('div');
                     container.className = 'cards-container';
                     this.mainContainer.appendChild(container);

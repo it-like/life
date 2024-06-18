@@ -2,16 +2,15 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext('2d');
 
-canvas.style.border = 'none';
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight/2;
+canvas.height = window.innerHeight/1.5;
 
 var canvasCenterX = canvas.width/2;
 var canvasCenterY= canvas.height/2;
 
 function plotSine(ctx, x=0){
     var width = ctx.canvas.width;
-    var height = ctx.canvas.height;
+    var height = ctx.canvas.height/2;
 
     var amplitude = 100;
     var frequency = ctx.canvas.width/(Math.PI*22);
@@ -20,10 +19,10 @@ function plotSine(ctx, x=0){
     if (x>=width){
         // ctx.clearRect(0, 0, canvas.width, canvas.height); // reset canvas
         //  x = 0;
-        return;
+        x= 0;
     };
 
-    var y = height/2 + amplitude*Math.sin(x/frequency + frequency/2 );
+    var y = height + amplitude*Math.sin(x/frequency + Math.PI/2 );
 
     if (x===0){
         ctx.beginPath();
@@ -34,50 +33,54 @@ function plotSine(ctx, x=0){
     ctx.stroke();
     ctx.lineTo(canvasCenterX, canvasCenterY*2);
     ctx.stroke();
-    setTimeout(() => plotSine(ctx, x = x+1.5),1);
+    setTimeout(() => plotSine(ctx, x = x+3),1);
 }
 
-function unitCircle (ctx,xPos, yPos, timeout, phi = Math.PI ){
-    var radius = 1;
-    xPos += radius * Math.cos(phi);
-    yPos += radius * Math.sin(phi);
-    
-    
-// if (phi >= Math.PI*2){
-//     //ctx.clearRect(0, 0, canvas.width, canvas.height); 
-//     return;
-// }
 
-// Draw first positon, otherwise connect to earlier position.
-if (phi ===0){
-    ctx.beginPath();
-    ctx.moveTo(xPos, yPos);
-    }else{
-        ctx.lineTo(xPos,yPos);
+function unitCircle(ctx, xPos, yPos, phi) {
+    const radius = 1;
+    if (phi <= Math.PI * 2) {
+        xPos += radius * Math.cos(phi);
+        yPos += radius * Math.sin(phi);
+
+        // Draw first position, otherwise connect to earlier position.
+        if (phi === 0) {
+            ctx.beginPath();
+            ctx.moveTo(xPos, yPos);
+        } else {
+            ctx.lineTo(xPos, yPos);
+        }
+        ctx.stroke();
+
+        // Recursively draw next point
+        unitCircle(ctx, xPos, yPos, phi + 0.1);
+    }else {
+        phi = 0;
+        movingBall(ctx, phi, xPos, yPos)
     }
-    //ctx.stroke();
-    
-    if(timeout)
-        {setTimeout(() => unitCircle(ctx, xPos, yPos, true, phi = phi+0.01),1)}
-    else{
-        unitCircle(ctx, xPos, yPos, false, phi = phi+0.01)}
-     
 }
+function animateBall(ctx, centerX, centerY, radius) {
+    let phi = 0;
+    setInterval(() => {
+        //ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        let xPos = centerX + radius * Math.cos(phi);
+        let yPos = centerY + radius * Math.sin(phi);
 
-function calculateXValues(){
-    for (let i = 0;i < 200; i++ ) {
-        setTimeout(() => {
-                console.log(i);
-        }, i*10);
-    }
-   
+        ctx.beginPath();
+        ctx.arc(xPos, yPos, 0, 0, Math.PI * 2, false);
+        //ctx.fill();
+        ctx.stroke();
+
+        phi += 0.1;
+        if (phi >= 2 * Math.PI) {
+            phi = 0;
+        }
+    }, Math.PI/2);
 }
+//plotSine(ctx)
 
-
+//unitCircle(ctx,canvasCenterX, canvasCenterY, 0 );
 plotSine(ctx)
-
-
-
-//unitCircle(ctx,canvasCenterX, canvasCenterY, true, 0 );
+animateBall(ctx, canvasCenterX, canvasCenterY/8, 0);
 
 //calculateXValues()

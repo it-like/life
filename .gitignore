@@ -1,1 +1,16 @@
 pythonfiles/
+
+
+
+
+
+
+
+
+
+
+# Ignores reduntant files in p5 (reached through script)
+p5/p5.min.js
+p5/p5.js
+p5/addons
+p5/README.txt

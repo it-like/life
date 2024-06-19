@@ -14,6 +14,8 @@ function draw() {
   rotateY(speedOfRotation);
   rotateX(speedOfRotation);
   rotateZ(speedOfRotation);
+  stroke(255,165,0);
+  strokeWeight(5);
   for(var i = 0; i < 360; i+=20){
     beginShape();
     for(var j = 0; j < 360; j+=5){

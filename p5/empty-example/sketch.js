@@ -10,7 +10,7 @@ function draw() {
   noFill();
   background(0,200,145);
   //rotateX(90 +counter);
-  speedOfRotation = sin(counter/10)*180;
+  speedOfRotation = sin(counter/20)*180;
   rotateY(speedOfRotation);
   rotateX(speedOfRotation);
   rotateZ(speedOfRotation);

@@ -77,10 +77,11 @@ function animateBall(ctx, centerX, centerY, radius) {
         }
     }, Math.PI/2);
 }
-plotSine(ctx)
 
 //unitCircle(ctx,canvasCenterX, canvasCenterY, 0 );
-//plotSine(ctx)
+
+plotSine(ctx)
+
 //animateBall(ctx, canvasCenterX, canvasCenterY/8, 0);
 
 //calculateXValues()

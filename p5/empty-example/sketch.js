@@ -1,7 +1,7 @@
 //global variables
 phi = 0;
 let counter =0;
-
+timeStep = 0;
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight, WEBGL);
   angleMode(DEGREES);
@@ -10,18 +10,18 @@ function setup() {
 } 
 
 function draw() {
+ 
   //wobblingWave();
-  wobblingWave();
-  //stiroGraph();
+  stiroGraph();
   
 }
 
 
 function stiroGraph() {
   background('orange'); 
-  const diameter =20
+  const diameter =200;
   radius = diameter/2;
-  translate(-window.innerWidth/3,window.innerWidth/7)
+  translate(-window.innerWidth/3,window.innerHeight/7)
   //rotateX(phi);
   noFill();
   stroke(0);
@@ -43,12 +43,22 @@ function stiroGraph() {
   line(0,-radius,0,radius) // y-axis
 
   strokeWeight(4);
-  line(0,0,x,y) // hypothenuse
-  line(0,0, x,0) // cos
-  line(x,0,x,y) // sin
-  strokeWeight(1);
-  phi -= 1
+  line(0,0,0,y); // sin
+  line(0,0, x,0); // cos
 
+  line(0,0,x,y); // hypothenuse
+  strokeWeight(1);
+  phi += 1;
+  timeStep +=1;
+  if (timeStep>window.innerWidth/2){
+    timeStep =0;
+  }
+
+  ellipse(timeStep ,y,2,2);
+  line(timeStep, y, x, y)
+
+  ellipse(x ,-timeStep/2,2,2);
+  line(x,-timeStep/2, x, y)
 
 
 }

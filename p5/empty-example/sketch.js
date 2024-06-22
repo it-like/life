@@ -10,15 +10,16 @@ function setup() {
 } 
 
 function draw() {
-   //wobblingWave();
-  stiroGraph();
+  //wobblingWave();
+  wobblingWave();
+  //stiroGraph();
   
 }
 
 
 function stiroGraph() {
   background('orange'); 
-  const diameter =200;
+  const diameter =20
   radius = diameter/2;
   translate(-window.innerWidth/3,window.innerWidth/7)
   //rotateX(phi);
@@ -49,29 +50,61 @@ function stiroGraph() {
   phi -= 1
 
 
-  
+
 }
   
 
 function wobblingWave(){
   noFill();
   background(0,200,145);
-  //rotateX(90 +counter);
+  //rotateX(counter/20);
+  rotateY(counter/20 + 20);
+  rotateX(45)
   speedOfRotation = sin(counter/20)*100;
-  rotateX(75);
   stroke(255,165,0);
   strokeWeight(5);
-  for(var i = 0; i < 360; i+=10){
+  for(var i = 0; i < 360; i+=5){
     beginShape();
-    for(var j = 0; j < 360; j+=5){
+    let interp = map(i, 0, 500, 0,1);
+      let r = lerp(0, 255, interp);
+      stroke(r, 0,0);
+    for(var j = 0; j < 360; j+=10){
       var rad = i/1.5;
       let x = rad * cos(j);
       let y = rad * sin(j);
-      let z = 20*sin(frameCount*4 + i/2) ;
-      counter += 0.001;
+      let z = 40*sin(frameCount*3 +i) ;
+      counter += 0.01;
       vertex(x , y, z);
     }
     endShape(CLOSE)
   }
 
+}
+
+function plotSine(ctx, x=0){
+  var width = ctx.canvas.width;
+  var height = ctx.canvas.height/2;
+
+  var amplitude = 100;
+  var frequency = ctx.canvas.width/(Math.PI*22);
+  //var period = 2 * Math.PI * 40 ; // P = 2pi/frequency
+  
+  if (x>=width){
+      // ctx.clearRect(0, 0, canvas.width, canvas.height); // reset canvas
+      //  x = 0;
+      x= 0;
+  };
+
+  var y = height + amplitude*Math.sin(x/frequency + Math.PI/2 );
+
+  if (x===0){
+      ctx.beginPath();
+      ctx.moveTo(x,y);
+  }
+
+  ctx.lineTo(x,y)
+  ctx.stroke();
+  ctx.lineTo(canvasCenterX, canvasCenterY*2);
+  ctx.stroke();
+  setTimeout(() => plotSine(ctx, x = x+3),1);
 }

@@ -14,3 +14,6 @@ p5/p5.min.js
 p5/p5.js
 p5/addons
 p5/README.txt
+package-lock.json
+package.json
+node_modules

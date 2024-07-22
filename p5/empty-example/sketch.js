@@ -88,7 +88,6 @@ function wobblingWave(){
     }
     endShape(CLOSE)
   }
-
 }
 
 function plotSine(ctx, x=0){
@@ -118,3 +117,4 @@ function plotSine(ctx, x=0){
   ctx.stroke();
   setTimeout(() => plotSine(ctx, x = x+3),1);
 }
+

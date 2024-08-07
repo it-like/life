@@ -1,39 +1,49 @@
 <!-- live server open cmd l o -->
 <!-- live server close cmd l c -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Gustav Gille</title>
+<title>Gustav Gille's</title>
 <link rel="stylesheet" href="styles.css">
-
 </head>
-<body style="background-color:orange;", onload="displayLastUpdated()">
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: orange;
+    }
+  </style>
+<body  onload="displayLastUpdated()">
     
-<div id="name_container""></div>
+
 <div id="main_hub">
-    <a href="p5/empty-example/index.html">Mathematics</a>
-    <h2> </h2>
-    <a href="flashcards/flashcards.html">Flashcards</a>
-    <h2> </h2>
-    <a href="mathematics/mathVisualisation/d3math.html">New Math</a>
+    <h1 id="name_container">Gustav Gille</h1>
+    <ul id="hub_list">
+        <li><a href="https://github.com/it-like">GitHub</a></li>
+        <li><a href="https://leetcode.com/u/IT-like/">Leetcode</a></li>
+        <li><a href="https://linkedin.com/in/gustavgille/">LinkedIn</a></li>
+        <li><a href="https://arxiv.org/abs/2406.13008">Bachelor's thesis: ClaudesLense</a></li>
+        <h1></h1>
+        <li><a href="p5/empty-example/index.html">Mathematics</a></li>
+        <li><a href="flashcards/flashcards.html">Flashcards</a></li>
+        <li><a href="mathematics/mathVisualisation/d3math.html">New Math</a></li>
+    </ul>
+</div>
 
 
-
+<div id ="links">
     <div id="lastUpdatedContainer"> <!-- Div to reach container (#) logic in css-->
-         Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
-    </div>
+        Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
+   </div>
 </div>
 
 
 
-
-<script src = "print_name.js"></script>
-<script>function displayLastUpdated(){
-    document.getElementById("lastUpdated").textContent = document.lastModified;
-    }</script>
+<script>function displayLastUpdated()
+        {document.getElementById("lastUpdated").textContent = document.lastModified;}
+        </script>
 </body>
 </html> 

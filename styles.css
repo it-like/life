@@ -1,30 +1,38 @@
 /*styles.css */
-
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 #name_container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+    text-align: center;
+    color: white;
+    padding-left: 20px;
 }
 
-.letter{
-    display: inline-block;
-    margin: -10px;
-    padding: 20px;
-    border-radius: 100%;
-    background-color: white;
-    text-align: center orange;
-    background: 1px solid black;
-    opacity: 100%;
-    color: orange;
-    transition:  all 200ms, opacity 400ms;
+.main_hub {
+    margin-top: 200px; /* Set a height for the container */
+    background-color: #f0f0f0; /* Light grey background for visibility */
 }
+#hub_list{
+    text-align: center;
+    color: cyan;
+    list-style-type: none;
+    font-size: large;
+    margin-left: auto;
+}
+
+a{
+    color: darkcyan;
+}
+a:hover{
+    color: cyan;
+}
+
 #lastUpdatedContainer {
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 10px;
+    color: white;
     margin: 5px;
     background-color:transparent;
-    
-  }
+}

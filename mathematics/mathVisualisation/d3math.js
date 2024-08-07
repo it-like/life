@@ -16,5 +16,5 @@ function visualizeMath() {
         .attr("fill", "black");
 }
 
-// Call the visualization function
+    
 visualizeMath();

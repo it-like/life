@@ -1,0 +1,72 @@
+/*index.css */
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+#name_container{
+    text-align: center;
+    color: white;
+    padding-left: 20px;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffa500;
+  }
+
+#globe{
+    
+    z-index: -1;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    size: cover;
+    transform: scaleX(-1);   
+}
+
+#hub_list{
+    z-index: 1;
+    text-align: center;
+    color: cyan;
+    list-style-type: none;
+    font-size:x-large;
+}
+
+ /*
+ a only affects links (anchor for hyperlink)
+ */
+a{
+    color: darkcyan;
+}
+a:hover{
+    color: cyan;
+}
+
+#lastUpdatedContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    margin: 5px;
+    background-color:transparent;
+}
+
+.container_about_me{
+    position: relative;
+    height: 0; /* Adjust the height as needed */
+
+    background-color: auto;
+}
+#about_me{
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    margin: 0;
+    rotate: 36deg;
+    font-size:xx-large;
+}
+
+

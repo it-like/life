@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about.css">
+    <title>About Me</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+</head>
+
+<body>
+
+     <h1 id="about_me">About me</h1>
+     <ul id="aboutMeList">
+         <li><h2><a href="https://arxiv.org/abs/2406.13008">Mathematical Bachelor</a> in Information Technology </h2></li>
+         <li><h2>1st year masters student in <a href="https://www.chalmers.se/en/education/find-masters-programme/engineering-mathematics-and-computational-science-msc/">Engineering Mathematics and computional sciences</a></h2></li>
+         <li><h2>Speaker for <a href="https://www.facebook.com/rekrytditchalmers/?locale=sv_SE">Chalmer's IT Recruit Group</a></h2></li>
+     </ul>
+     
+     <div id="indepthMe">I am 22 years old and have lived in Gothenburg for the last 4 years. I began studying IT and 
+        early on found a passion for mathematical modelling.
+        <br>
+        <span class="indent">Since then I have built AI models in Python, path finding algorithms in Java and simulated movements of beams with Fourier series approximations in Matlab.</span>
+        <br>
+        In the future I wish to continue comprehend the world of mathematics and implement examples on this website.
+    
+     </div>
+
+ 
+    <figure id="picturesOfMe">
+        <div class="photo"><img src="/pictures/IMG_2460.jpeg" alt="Image 2"></div>
+        <div class="photo"><img src="/pictures/IMG_2816.jpeg" alt="Image 2"></div>
+        <div class="photo"><img src="/pictures/IMG_2498.jpeg" alt="Image 2"></div>
+    </figure>
+
+    <h4 id="breadTag">I made this bread, tasty right?</h4>
+     <div  class="photo myBread"><img src="/pictures/IMG_3186.jpeg" alt="Image 2"></div>
+    <!--<div id="photo"><img src="/pictures/IMG_0034.jpeg" alt="Image 2"></div> -->
+
+    <!-- <div id="bookListContainer"> 
+        <h3>Books I have read summer of 2024:</h3>
+        <ul id="bookList"> 
+            <li>Hyperion, Science Fiction</li>
+            <li>The Molecule of More</li>
+            <li>Howl's Moving Castle</li>
+            <li>How We Learn</li>
+            <li>Thinking, Fast & Slow</li>
+        </ul>
+    </div> -->
+    <a href="../index.html" id="goBack" style="display: flex; position: absolute; top: 10px; right: 10px; font-size: 40px;">Return</a>
+    <div id="waves"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js" ></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        VANTA.WAVES({
+              el: "#waves",
+              mouseControls: false,
+              touchControls: true,
+              gyroControls: false,
+              minHeight: 600.00,
+              showLines: false,
+              minWidth: 200.00,
+              scale: 1.00,
+              scaleMobile: 1.00,
+              spacing: 100,
+              backgroundColor: 0xffA500,
+              color:0xFF6200 ,
+          
+          });
+        });
+      
+      </script>
+</body>
+</html>

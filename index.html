@@ -33,8 +33,10 @@
 
 
 <script>
-    function displayLastUpdated()
-    {document.getElementById("lastUpdated").textContent = document.lastModified;}
+    function displayLastUpdated() {
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").textContent = date.toLocaleDateString();
+    }
 </script>
 
 <!-- <div class=""><a id="about_me" href="about_me/about.html">About me</a ></div> -->

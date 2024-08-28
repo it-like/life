@@ -17,3 +17,5 @@ p5/README.txt
 package-lock.json
 package.json
 node_modules
+fourierDrawing/libraries
+fourierDrawing/jsconfig.json

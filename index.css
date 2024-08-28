@@ -19,11 +19,9 @@ body {
 .main_hub{
     box-sizing: border-box;
     display: grid;
-    width: 50vw;
-    min-width: 0px;
+    width: 250px;
     margin: auto;
-    height: 40vh;
-    min-height: 300px;
+    height: 300px;
     grid-template-columns:  repeat(auto-fit);
     grid-template-rows:     repeat(auto-fit);
     grid-auto-flow: row;

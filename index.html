@@ -5,6 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
+<title>Gustav Gille</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -12,58 +13,36 @@
 
  
 <body  onload="displayLastUpdated()">
-<div id="main_hub">
-    <h1 id="name_container">Gustav Gille</h1>
-    <ul id="hub_list">
-        <li><a href="https://github.com/it-like">GitHub</a></li>
-        <li><a href="https://leetcode.com/u/IT-like/">Leetcode</a></li>
-        <li><a href="https://linkedin.com/in/gustavgille/">LinkedIn</a></li>
-        <li><a href="https://arxiv.org/abs/2406.13008">Bachelor's Thesis: ClaudesLens</a></li>
-        <li><a href="https://youtu.be/_-A4sdwZNR4">Fourier Series Approximations</a></li>
-        <!-- <h1></h1>
-        <li><a href="p5/empty-example/index.html">Mathematics</a></li>
-        <li><a href="flashcards/flashcards.html">Flashcards</a></li>
-        <li><a href="mathematics/mathVisualisation/d3math.html">New Math</a></li> -->
-    </ul>
-    
+<h1 id="name_container">Gustav Gille</h1>  
+<div class="main_hub">
+    <a id="hubItem" href="https://leetcode.com/u/IT-like/">Leetcode</a>
+    <a id="hubItem" href="https://arxiv.org/abs/2406.13008">Bachelor's Thesis: ClaudesLens</a>
+    <a id="hubItem" href="https://linkedin.com/in/gustavgille/">LinkedIn</a>
+    <a id="hubItem" href="https://ankiweb.net/shared/by-author/1716108375">Flashcards</a>
+    <a id="hubItem" href="https://github.com/it-like">GitHub</a>
+    <a id="hubItem" href="https://youtu.be/_-A4sdwZNR4">Fourier Series Approximations</a>
 </div>
+<div class="misc"><a href="about_me/about.html">About me</a ></div>
+<div class="misc"><a href="about_me/cv.html">CV</a></div>
 
-<div id ="links">
-    <div id="lastUpdatedContainer"> <!-- Div to reach container (#) logic in css-->
-        Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
-   </div>
 
-</div>
 
-<div id="globe"></div>
 
-    <!-- Load only the Globe Vanta.js script -->
-<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js" ></script>
+
+
+
 
 <script>
-        function displayLastUpdated()
-        {document.getElementById("lastUpdated").textContent = document.lastModified;}
-        document.addEventListener('DOMContentLoaded', function () {
-
-        VANTA.GLOBE({
-              el: "#globe",
-              mouseControls: false,
-              touchControls: true,
-              gyroControls: false,
-              minHeight: 200.00,
-              minWidth: 200.00,
-              scale: 1.00,
-              scaleMobile: 1.00,
-              backgroundColor: 0xffA500,
-              color:0xffffff ,
-          
-          });
-        });
-
+    function displayLastUpdated()
+    {document.getElementById("lastUpdated").textContent = document.lastModified;}
 </script>
 
+<!-- <div class=""><a id="about_me" href="about_me/about.html">About me</a ></div> -->
+<div id="email">gustav.gille@gmail.com</div>
 
-<div class=""><a id="about_me" href="about_me/about.html">About me</a ></div>
+<div id="lastUpdatedContainer"> <!-- Div to reach container (#) logic in css-->
+    Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
+</div>
 
 </body>
 

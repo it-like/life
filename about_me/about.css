@@ -7,8 +7,12 @@
 }
 
 #about_me{
-    color:white;
-    position: relative;
+    text-align: center;
+    color: black;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 35px;
+    font-size: 60px;
 }
 
 #aboutMeList{
@@ -18,78 +22,71 @@
     width: 19em;
     
 }
-#indepthMe{
-    color: black;
-    position: absolute;
-    display: block;
-    font-size: 20px;
-    top: 150px;
-    right:50px;
-    width: 20em;
-    z-index: 2;
-
-}
 
 a{
-    color: darkcyan;
+    color:gray;
 }
 a:hover{
-    color: cyan;
+    color:lightgrey;
 }
 
-.indent{
-    text-indent: 15px;
-    display: block;
-}
+
 #bookListContainer{
     position: relative;
-    color: white;
+    color: black;
 }
 
-#picturesOfMe {
-    display: flex;
-    position:absolute;
-    bottom: -15px;
-    margin: 0;
-    right: 0;
-}
 
-#breadTag{
-    color: white;
-    display: flex;
-    font-size: 12px;
-    position: absolute;
-    left: 15px;
-    bottom: 350px; 
-}
-
-.myBread{
-    display: flex;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    margin: 0;
-    width: 250px;
-}
-
-.photo img {
-    border-radius: 10px;
-    width: 200px;
-}
 #bookListContainer{
     position: absolute;
     display: block;
     z-index: 0;
     left: 350px;
 }
-#waves{
-    z-index: -1;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    size: cover;
-    transform: scaleX(-1);   
+
+.about_me_grid{
+    box-sizing: border-box;
+    display: grid;
+    width: 50vw;
+    min-width: 400px;
+    margin: auto;
+    height: 40vh;
+    min-height: 300px;
+    grid-template-columns:  repeat(auto-fit);
+    grid-template-rows:     repeat(auto-fit);
+    grid-auto-flow: row;
+    justify-content:    center;
+    align-content: center;
+    border-radius: 5px;
+    gap: 10px;
+    border: solid;
+    border-color: gray;
+    text-align: center;
+}
+
+.book_grid{
+    box-sizing: border-box;
+    display: grid;
+    width: 40vw;
+    min-width: 300px;
+    margin: auto;
+    height: 40vh;
+    min-height: 300px;
+    grid-template-columns:  repeat(auto-fit);
+    grid-template-rows:     repeat(auto-fit);
+    grid-auto-flow: row;
+    justify-content:    center;
+    align-content: center;
+    border-radius: 5px;
+    gap: 10px;
+    border: solid;
+    border-color: gray;
+    text-align: center;
+}
+
+
+.about_me_text{
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
 }

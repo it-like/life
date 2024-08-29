@@ -18,4 +18,4 @@ package-lock.json
 package.json
 node_modules
 fourierDrawing/libraries
-fourierDrawing/jsconfig.json
+fourierDrawing/jsconfig

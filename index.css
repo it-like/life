@@ -21,7 +21,7 @@ body {
     display: grid;
     width: 250px;
     margin: auto;
-    height: 300px;
+    height: 350px;
     grid-template-columns:  repeat(auto-fit);
     grid-template-rows:     repeat(auto-fit);
     grid-auto-flow: row;

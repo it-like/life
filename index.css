@@ -27,7 +27,8 @@ body {
     grid-auto-flow: row;
     justify-content:    center;
     align-content: center;
-    border-radius: 5px;
+    border-radius: 10px;
+    border-width: 100px;
     gap: 10px;
     border: solid;
     border-color: gray;
@@ -55,10 +56,10 @@ body {
 }
 
 a{
-    color: gray;
+    color: black;
 }
 a:hover{
-    color: darkgray;
+    color: grey;
 }
 
 #lastUpdatedContainer {

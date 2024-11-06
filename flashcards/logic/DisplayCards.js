@@ -2,7 +2,7 @@ class DisplayCards {
     
     constructor() {
         this.path = './decks/JSONFiles/';
-        this.files = ["GeometricalVectors", "Quotes", "Matrices"];
+        this.files = ["NonLinearOpt"];
         this.mainContainer = document.getElementById('mainContainer');
         this.hierarchyPaths = [];
         this.createDisplay().then(() => this.createHierarchyTree());  // this shit took forever to find
@@ -84,5 +84,6 @@ class DisplayCards {
         return text.replace(/\\\\/g, '\\'); // Convert double backslashes to a single backslash
     }
 }
+
 
 new DisplayCards();

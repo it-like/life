@@ -13,7 +13,9 @@
 }
 body {
     padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
   }
 
@@ -67,20 +69,30 @@ a:hover{
     color: grey;
 }
 
+
+.bottom-container {
+    display: flex;
+    position: inherit;
+    justify-content: center;
+    columns: 2;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto; 
+    font-size: 15px;
+    margin-top: 20px;
+    gap: 40px; 
+    width: 375px;
+}
 #lastUpdatedContainer {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    position:center;
+    bottom: 0px;
     color: black;
-    background-color:transparent;
+    
 }
 
 
-
 #email{
-    position: absolute;
-    font-size: larger;
+    position: center;
     color: black;
-    right: 10px;
-    bottom: 10px;
+    bottom: 0px;
 }

@@ -28,15 +28,16 @@
     </ul>
 
 </div>
+
 <div class="misc"><a href="about_me/about.html">About me</a ></div>
 <div class="misc"><a href="about_me/cv.html">CV</a></div>
 
-
-
-
-
-
-
+<div class ="bottom-container">
+    <div id="email">gustav.gille@gmail.com</div>
+    
+    <div id="lastUpdatedContainer"> Last updated <span id="lastUpdated"></span> 
+</div>
+</div>
 
 <script>
     function displayLastUpdated() {
@@ -44,13 +45,6 @@
         document.getElementById("lastUpdated").textContent = date.toLocaleDateString();
     }
 </script>
-
-<!-- <div class=""><a id="about_me" href="about_me/about.html">About me</a ></div> -->
-<div id="email">gustav.gille@gmail.com</div>
-
-<div id="lastUpdatedContainer"> <!-- Div to reach container (#) logic in css-->
-    Last updated: <span id="lastUpdated"></span>  <!--p creates <br>, therefore span used-->
-</div>
 
 </body>
 

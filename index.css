@@ -24,7 +24,6 @@ body {
     width: 375px;
     font-size: 25px;
     margin: auto;
-    height: 450px;
     grid-template-columns: 1fr; 
     grid-auto-rows: auto;       
    

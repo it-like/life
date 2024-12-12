@@ -1,14 +1,16 @@
+
 /*index.css */
 *{
     font-family: 'Times New Roman', Times, serif;
 }
 #name_container{
+    width: 100%; /* Or another appropriate width */
     text-align: center;
     color: black;
-    margin: auto;
+    margin: 0 auto;
     margin-top: 80px;
     margin-bottom: 35px;
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bold;
 }
 body {
@@ -24,14 +26,16 @@ body {
     width: 375px;
     font-size: 25px;
     margin: auto;
+    text-align: center;
     grid-template-columns: 1fr; 
     grid-auto-rows: auto;       
-   
-    justify-content: start;     
+    position: center;
+    justify-content: right;     
     align-content: start;       
-    border-radius: 10px;
+    /*border-radius: 10px;
+
     border: solid;
-    border-color: gray;
+    border-color: gray;*/
 }
 
 #hub_list {
@@ -39,6 +43,7 @@ body {
     color: cyan;
     list-style-type: none;
     font-size: x-large;
+    text-align: center;
     padding: 0;                 /* Remove default padding */
     width: 100%;               /* Full width */
 }
@@ -57,7 +62,7 @@ body {
     margin: 0 auto;
     text-align: center;
     margin-top: 40px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 
@@ -88,6 +93,19 @@ a:hover{
     color: black;
     
 }
+
+/* This CSS hides the div by default */
+#only_on_desktop{
+    display: none;
+}
+
+/* This media query applies styles only when the screen width is greater than 600px */
+@media (min-width: 800px) {
+    #only_on_desktop {
+        display: flex; /* Change this to 'flex', 'inline-block', etc., based on your layout needs */
+    }
+}
+
 
 
 #email{

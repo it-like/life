@@ -12,14 +12,14 @@ body {
     padding: 0;
     margin: 0;
     background-color: white;
-  }
+}
 
 /* Main container for all cards */
 #mainContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; 
-    align-items: flex-start; 
+    align-items: flex-start;
     gap: 10px; 
 }
 
@@ -42,25 +42,12 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,1); 
 }
 
-
 .card h3 {
     margin-top: 100px;
     color: #333333;
 }
 
-.card cf{
-    
-    line-height: 1;
-    color: black;
-    text-align: center;
-}
-
-.card cb{
-    line-height: 1; 
-    color: white;
-    text-align: left;
-}
-
+/* Removed unused CSS classes .card cf and .card cb as they seem incorrect */
 
 .card-front, .card-back {
     width: 100%;
@@ -74,17 +61,19 @@ body {
     justify-content: center; 
     flex-direction: column;
     padding: 20px;
-    box-sizing: border-box; /* Remove duplicate */
     border-radius: 20px;
-    text-align: center;
+    box-sizing: border-box; /* Ensures padding is included in width/height */
+}
+
+.card-front {
+    background-color: white; 
+    color: #333;
 }
 
 .card-back {
-    background-color: grey;
+    background-color: white;
     text-align: center;
-    color: #fff;
-    position: absolute; /* Change from relative */
-
+    color: black;
     transform: rotateY(180deg);
 }
 
@@ -95,28 +84,15 @@ body {
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
-.card-front {
-    background-color: white; 
-    color: #333;
-    position:relative;
-}
 
-
-/*
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-*/
 .card.flipped .card-inner {
     transform: rotateY(180deg);
 }
+
 h1, h3 {
     text-align: center;
 }
 
 h1 {
-    text-align: center;
     margin-bottom: 20px;
 }
-
-

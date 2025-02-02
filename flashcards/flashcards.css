@@ -7,13 +7,28 @@
     font-weight: normal;
     font-style: normal;
 }
+:root{
+    --color :#ffe2c3; 
+}
+
 body {
     font-family: 'CMUD Serif', sans-serif; /* Misspelled on purpose */
     padding: 0;
     margin: 0;
-    background-color: white;
+    background-color: #FED8B1;
 }
 
+    
+#name_container{
+    width: 100%; /* Or another appropriate width */
+    text-align: center;
+    color:goldenrod;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 35px;
+    font-size: 80px;
+    font-weight: bold;
+}
 /* Main container for all cards */
 #mainContainer {
     display: flex;
@@ -25,8 +40,8 @@ body {
 
 /* Individual card styling */
 .card {
-    background-color: white;
-    border: 2px solid #dddddd; 
+    background-color: var(--color);
+    border: 2px solid var(--color); 
     box-shadow: 0 5px 5px rgba(0,0,0,0.1); 
     width: 800px;
     height: 900px;
@@ -66,12 +81,12 @@ body {
 }
 
 .card-front {
-    background-color: white; 
+    background-color: var(--color); 
     color: #333;
 }
 
 .card-back {
-    background-color: white;
+    background-color: var(--color);
     text-align: center;
     color: black;
     transform: rotateY(180deg);

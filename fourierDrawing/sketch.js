@@ -1,172 +1,136 @@
 /* Constants */
-let angle = 0;
 let elapsedTime = 0;
 const width = 5000;
 const height = 1000;
-let buffer;
-let prevX = 0;
-let prevY = 0;
-let prevX2 = 0;
-let prevY2 = 0;
-let LSlider;
+let curveBuffer, ballBuffer;
+let prevX = 0, prevY = 0, prevX2 = 0, prevY2 = 0;
+let LSlider, speedSlider;
+let ballColor;
+let prevIterations;
 
 function setup() {
-    createCanvas(width, height);
-    buffer = createGraphics(width, height);  // Create a separate graphics buffer
-    
-    // Slider setup
-    LSlider = createSlider(2, 200 , 1, 2);  // Assuming L ranges from 1 to 100, initial value 50
-    LSlider.position(0,  50);
-    LSlider.style('width', '480px');
-    
+  createCanvas(width, height);
+  curveBuffer = createGraphics(width, height);
+  ballBuffer = createGraphics(width, height);
+
+  // Approximations slider
+  LSlider = createSlider(2, 200, 1, 2);
+  LSlider.position(0, 50);
+  LSlider.style('width', '480px');
+
+  // Speed slider
+  speedSlider = createSlider(1, 50, 1, 0.1);
+  speedSlider.position(0, 100);
+  speedSlider.style('width', '480px');
+
+  ballColor = color(123, 123, 200);
+  prevIterations = LSlider.value();
 }
 
 function draw() {
-    clear();
+  clear();
+  let timeThreshold = 500;
+  let iters = LSlider.value();
 
-    let time_threshold = 500;
-    let iters = LSlider.value();  // Get the current value of L from the slider
-    
-    textSize(16);
-    text('Approximations = ' + (LSlider.value()/2 ), LSlider.x + 1 ,LSlider.y-35);
+  textSize(16);
+  text('Approximations = ' + (iters / 2), LSlider.x + 1, LSlider.y - 35);
+  text('Rotation Speed = ' + nf(speedSlider.value(), 1, 1), speedSlider.x + 1, speedSlider.y - 35);
 
-    fourierSeries(elapsedTime, buffer, iters);  // Pass L to your Fourier series function
 
-    elapsedTime = increment(elapsedTime, 0.1, time_threshold);
 
-    if (elapsedTime >= time_threshold) {
-        buffer.clear();
-        prevX = 0;
-        prevY = 0;
-        prevX2 = 0;
-        prevY2 = 0;
-        elapsedTime = 0;
-    }
+  // Draw the Fourier series and get final ball info.
+  let ballData = fourierSeries(elapsedTime, curveBuffer, iters, true);
 
-    image(buffer, 0, 0);
+  // Increment time based on speed slider.
+  elapsedTime = increment(elapsedTime, speedSlider.value() * 0.1, timeThreshold);
+
+  // Reset the curveBuffer periodically.
+  if (elapsedTime >= timeThreshold) {
+    curveBuffer.clear();
+    prevX = prevY = prevX2 = prevY2 = 0;
+    elapsedTime = 0;
+  }
+
+  image(curveBuffer, 0, 0);
+  image(ballBuffer, 0, 0);
 }
 
-
-function increment(variable, increment_size, threshold){
-    if (variable > threshold){
-        variable = 0;
-    }
-    variable += increment_size;
-    return variable
+function increment(variable, incrementSize, threshold) {
+  if (variable > threshold) variable = 0;
+  return variable + incrementSize;
 }
 
+// fourierSeries now returns the final ball's coordinates and diameter.
+// When drawBall is false, it draws without rendering the final ball.
+function fourierSeries(time, buffer, iterations, drawBall) {
+  const b0 = 2.5 / PI;
+  let sum = 0;
+  let circleX = 500;
+  let amplitudes = [];
+  const radius = 200;
+  let periods = [];
 
-function fourierSeries(time, buffer, iterations){
-    const b_0 = 2.5/PI
-    let sum = 0;
-    circlex = 500;
-    let sum2 = 0;
-    let amplitudes = [];
-    const radius = 200;
-    let periods = [];
-    /* Approximation for heavyside function f(x) = 100[H(x/L) - H(x/L - 1)] - 1 */
-    const L = 1 / 30;  // Recalculate L based on the number of iterations
-    for(i = 1; i <= iterations; i += 2){ 
-        amplitude = (radius/i)
-        currentPeriod = i*PI*(L/2) * time
-        amplitudes.push(amplitude) /* List of fourier values */
-        periods.push(currentPeriod)
-        sum += amplitude*sin(currentPeriod)
-        circle(circlex, 500 , radius*2*b_0)
+  const L = 1 / 30;
+  for (let i = 1; i <= iterations; i += 2) { 
+    let amplitude = radius / i;
+    let currentPeriod = i * PI * (L / 2) * time;
+    amplitudes.push(amplitude);
+    periods.push(currentPeriod);
+    sum += amplitude * sin(currentPeriod);
+    circle(circleX, 500, radius * 2 * b0);
+  }
+
+  let f = b0 * sum;
+  let x = time + 1000;
+  let y = f + 500;
+
+  let posX = circleX + amplitudes[0] * cos(periods[0]) * b0;
+  let posY = 500 + amplitudes[0] * sin(periods[0]) * b0;
+
+  line(circleX, 500, posX, posY);
+
+  if (iterations <= 2) {
+    line(posX, posY, x, y);
+    if (drawBall) {
+      fill(ballColor);
+      circle(posX, posY, 26.525823848649228);
+    }
+    var finalBall = { x: posX, y: posY, diameter: 26.525823848649228 };
+  } else {
+    for (let index = 0; index < amplitudes.length; index++) {
+      if (index > 0 && index < amplitudes.length - 1) {
+        let nextX = posX + amplitudes[index] * cos(periods[index]) * b0;
+        let nextY = posY + amplitudes[index] * sin(periods[index]) * b0;
+        line(posX, posY, nextX, nextY);
+        circle(posX, posY, amplitudes[index] * b0 / 2);
+        posX = nextX;
+        posY = nextY;
+      }
     }
 
-    for(i = 1; i <= 1000000; i += 2){ 
-        sum2 += (radius/i)*sin(i*PI*(L/2) * time)
-    }
+    let lastX = posX + amplitudes[amplitudes.length - 1] * cos(periods[periods.length - 1]) * b0;
+    let lastY = posY + amplitudes[amplitudes.length - 1] * sin(periods[periods.length - 1]) * b0;
 
-    f = b_0 * sum /* Fourier approximation */
-    x = time + 1000
-    y= f + 500
-
-
-    f2 = b_0 * sum2
-    x2 = time + 1000
-    y2 = f2 + 200
-
-
-circle_X = circlex + amplitudes[0]*cos(periods[0])*b_0;
-circle_Y = 500 + amplitudes[0]*sin(periods[0])*b_0;
-
-line(circlex, 500, circle_X,circle_Y) /* inside circle, center to edge*/
-
-if (iterations <=2){
-    line(circle_X, circle_Y, x, y)
-    circle(circle_X, circle_Y, 26.525823848649228) // hard coded
-    console.log("here")
-   
+    line(posX, posY, lastX, lastY);
+    circle(posX, posY, amplitudes[amplitudes.length - 1] * b0 / 2);
+    line(lastX, lastY, x, y);
+    if (drawBall) {
+      let dia = amplitudes[amplitudes.length - 1] * b0 / 4;
   
-}else{
-    
-    amplitudes.forEach(function (item, index){
-        if(index > 0 && amplitudes.length -1 !== index){
-            var nextX = circle_X + item * cos(periods[index]) * b_0;
-            var nextY = circle_Y + item * sin(periods[index]) * b_0;
-            line(circle_X, circle_Y, nextX, nextY);
-            circle(circle_X, circle_Y, item * b_0 / 2);
-
-            circle_X = nextX;
-            circle_Y = nextY;
-        }
-    });
-
-    if (amplitudes.length <= 0) {
-        let lastIndex = amplitudes.length - 1;
-        let lastx = circle_X + amplitudes[lastIndex] * cos(periods[lastIndex]) * b_0;
-        let lasty = circle_Y + amplitudes[lastIndex] * sin(periods[lastIndex]) * b_0;
-
-        line(circle_X, circle_Y, lastx, lasty);
-        circle(circle_X, circle_Y, amplitudes[lastIndex] * b_0 / 2);
-
-        if (amplitudes.length >= 1) {
-            line(lastx, lasty, x, y);
-            circle(lastx, lasty, amplitudes[lastIndex] * b_0 / 2);
-        }
+      circle(lastX, lastY, dia);
+      var finalBall = { x: lastX, y: lastY, diameter: dia };
     }
+  }
 
-lastx = circle_X + amplitudes[amplitudes.length - 1] * cos(periods[periods.length - 1])*b_0;
-lasty = circle_Y + amplitudes[amplitudes.length - 1] * sin(periods[periods.length - 1])*b_0;
+  if (prevX) buffer.line(prevX, prevY, x, y);
+  if (prevX2) buffer.line(prevX2, prevY2, x, y);
 
-
-
-line(circle_X , circle_Y, lastx , lasty) 
-circle(circle_X, circle_Y , amplitudes[amplitudes.length - 1]*b_0/2)
-line(lastx, lasty, x,y)
-circle(lastx, lasty ,  amplitudes[amplitudes.length - 1]*b_0/4)
-
+  prevX2 = x; prevY2 = y; prevX = x; prevY = y;
+  return finalBall || { x: x, y: y, diameter: 26.525823848649228 };
 }
 
-
-    if(prevX){ /* Skips drawing from (0,0) */
-        buffer.line(prevX, prevY, x, y)
-      
-    }
-    if(prevX2){
-        buffer.line(prevX2,prevY2,x2,y2)
-    }
-
-    
-    prevX2 = x2
-    prevY2 = y2
-    prevX = x
-    prevY = y 
-}
-
-
-
-
-
-
-/* Old Functions */
-
-
-function drawSinWave(t, buff){
-    let x = t*10 
-    let y = 400 + 30 * sin(t)
-    buff.circle(x, y, 1)
-    
+function drawSinWave(t, buff) {
+  let x = t * 10;
+  let y = 400 + 30 * sin(t);
+  buff.circle(x, y, 1);
 }

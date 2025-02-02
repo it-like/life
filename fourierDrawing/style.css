@@ -1,8 +1,14 @@
-html, body {
-  margin: 0;
-  padding: 0;
+/*about.css*/
+:root{
+  --width: 200px;
+  --color:black;
+}
+*{
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #FED8B1;
 }
 
-canvas {
-  display: block;
+body{
+  background-color: #FED8B1;
+  color: darkgoldenrod;
 }

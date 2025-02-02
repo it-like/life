@@ -1,14 +1,21 @@
 /*about.css*/
+:root{
+    --width: 200px;
+    --color:black;
+}
 *{
     font-family: 'Times New Roman', Times, serif;
-    background-color: #ffa500;
-    background-color: unset;
+    background-color: #FED8B1;
+}
 
+body{
+    background-color: #FED8B1;
+    color: grey;
 }
 
 #about_me{
     text-align: center;
-    color: black;
+    color:goldenrod;
     margin: auto;
     margin-top: 80px;
     font-size: 60px;
@@ -24,11 +31,12 @@
 }
 
 a{
-    color:black;
+    color: grey;
 }
 a:hover{
-    color:grey;
+    color: black;
 }
+
 
 
 #bookListContainer{
@@ -62,7 +70,7 @@ a:hover{
 }
 
 #title{
-    color: black;
+    color: inherit;
     margin: auto;
     margin-top: 40px;
     font-weight: bold;
@@ -71,8 +79,7 @@ a:hover{
     font-size: 30px;
     
 }
-.book_grid{
-    
+.book_grid{ /*need for 2024 html */
     display: grid;
     width: 300px;
     margin: auto;
@@ -83,11 +90,7 @@ a:hover{
     align-content: center;
     border-radius: 5px;
     gap: 10px;
-   
     font-size: 25px;
-    
-    
-    text-align: left;
     margin-top: 20px;
 
 }
@@ -100,9 +103,74 @@ a:hover{
 }
 #goals{
     text-align: center;
-    display: grid;
     font-size: 30px;
     margin-top: 20px;
-    position: center;
-    place-items: center;
 }
+
+
+
+.dropdown {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .dropdown_menu {
+    display: flex;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 20px;
+    width: 250px; 
+    border-radius: 6px;
+    height: 500px; 
+    font-size: 40px;
+    flex-direction: column;
+  }
+  .dropdown_button {
+    background-color: goldenrod;
+    color: white;
+    font-size: 20px;
+    width: var(--width);
+    text-align: center;
+    height: 60px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  
+  .dropdown_button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Slightly darken links on hover */
+.dropdown_menu a {
+    background-color: inherit;
+    opacity: 0;
+    margin-top: 75px;
+    transform: translateY(-20px); /* Start slightly off-screen */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+  .dropdown_menu a:hover {
+    color: black;
+  }
+  
+.dropdown_button:hover {
+    background-color: darkgoldenrod;
+
+  }
+  
+  .dropdown_menu.hide {
+    opacity: 0;
+    border: none;
+
+  }
+  
+
+  

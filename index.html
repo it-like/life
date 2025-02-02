@@ -9,12 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 
  
 <body  onload="displayLastUpdated()">
 <h1 id="name_container">Gustav Gille</h1>  
+
+  <svg class="paper-airplane" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <polygon points="4,32 60,8 36,32 60,56" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+  
+  
+  
 <div class="main_hub">
     <ul>
          <a id="hubItem" href="https://arxiv.org/abs/2406.13008">ClaudesLens</a>
@@ -36,16 +42,11 @@
 
     <div id="email">gustav.gille@gmail.com</div>
     <div id="lastUpdatedContainer"> Last updated <span id="lastUpdated"></span> 
-        
-</div>
-</div>
+<script src="index.js"></script>
 
-<script>
-    function displayLastUpdated() {
-        var date = new Date(document.lastModified);
-        document.getElementById("lastUpdated").textContent = date.toLocaleDateString();
-    }
-</script>
+
+
+
 
 </body>
 

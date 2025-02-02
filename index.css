@@ -3,10 +3,11 @@
 *{
     font-family: 'Times New Roman', Times, serif;
 }
+
 #name_container{
     width: 100%; /* Or another appropriate width */
     text-align: center;
-    color: black;
+    color:goldenrod;
     margin: 0 auto;
     margin-top: 80px;
     margin-bottom: 35px;
@@ -16,9 +17,10 @@
 body {
     padding: 0;
     display: flex;
+    color: grey;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background-color: #FED8B1;
   }
 
   .main_hub {
@@ -32,10 +34,6 @@ body {
     position: center;
     justify-content: right;     
     align-content: start;       
-    /*border-radius: 10px;
-
-    border: solid;
-    border-color: gray;*/
 }
 
 #hub_list {
@@ -64,13 +62,17 @@ body {
     margin-top: 40px;
     font-size: 25px;
 }
-
+.paper-airplane {
+    position: fixed;
+    width: 30px;
+  }
+  
 
 a{
-    color: black;
+    color: grey;
 }
 a:hover{
-    color: grey;
+    color: black;
 }
 
 
@@ -90,8 +92,6 @@ a:hover{
 #lastUpdatedContainer {
     position:center;
     bottom: 0px;
-    color: black;
-    
 }
 
 /* This CSS hides the div by default */
@@ -110,6 +110,6 @@ a:hover{
 
 #email{
     position: center;
-    color: black;
+    color: inherit;
     bottom: 0px;
 }

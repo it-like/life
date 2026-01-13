@@ -1,115 +1,51 @@
+/* index.css - page-specific styles (base theme lives in styles/base.css) */
 
-/*index.css */
-*{
-    font-family: 'Times New Roman', Times, serif;
-}
-
-#name_container{
-    width: 100%; /* Or another appropriate width */
-    text-align: center;
-    color:goldenrod;
+.main_hub {
+    width: min(560px, 100%);
     margin: 0 auto;
-    margin-top: 80px;
-    margin-bottom: 35px;
-    font-size: 80px;
-    font-weight: bold;
 }
-body {
-    padding: 0;
-    display: flex;
-    color: grey;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #FED8B1;
-  }
 
-  .main_hub {
+.hub-list {
     display: grid;
-    width: 375px;
-    font-size: 25px;
-    margin: auto;
-    text-align: center;
-    grid-template-columns: 1fr; 
-    grid-auto-rows: auto;       
-    position: center;
-    justify-content: right;     
-    align-content: start;       
+    gap: 4px;
 }
 
-#hub_list {
-    text-align: left;           /* Left align text */
-    color: cyan;
-    list-style-type: none;
-    font-size: x-large;
-    text-align: center;
-    padding: 0;                 /* Remove default padding */
-    width: 100%;               /* Full width */
+.hubItem {
+    font-size: 20px;
+    line-height: 1.25;
 }
 
-
-
-#hubItem {
-    display: block;            /* Make links block elements */
-    text-align: left;
-    font-size: 30px;
-    padding: 9px;          /* Vertical padding */
-}
-
-
-.misc{  
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 25px;
-}
-.paper-airplane {
-    position: fixed;
-    width: 30px;
-  }
-  
-
-a{
-    color: grey;
-}
-a:hover{
-    color: black;
-}
-
-
-.bottom-container {
+.misc {
     display: flex;
-    position: inherit;
     justify-content: center;
-    columns: 2;
-    align-items: center;
-    text-align: center;
-    margin: 20px auto; 
-    font-size: 15px;
-    margin-top: 20px;
-    gap: 40px; 
-    width: 375px;
-}
-#lastUpdatedContainer {
-    position:center;
-    bottom: 0px;
+    margin-top: 18px;
 }
 
-/* This CSS hides the div by default */
-#only_on_desktop{
+.header {
+    position: relative;
+}
+
+.paper-airplane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hide certain links on small screens */
+.only_on_desktop {
     display: none;
 }
 
-/* This media query applies styles only when the screen width is greater than 600px */
 @media (min-width: 800px) {
-    #only_on_desktop {
-        display: flex; /* Change this to 'flex', 'inline-block', etc., based on your layout needs */
+    .hubItem {
+        font-size: 22px;
     }
-}
 
-
-
-#email{
-    position: center;
-    color: inherit;
-    bottom: 0px;
+    .only_on_desktop {
+        display: list-item;
+    }
 }

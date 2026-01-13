@@ -1,0 +1,186 @@
+/* speed_read.css - page-specific styles (base theme lives in ../styles/base.css) */
+
+.sr-controls {
+  display: grid;
+  gap: 14px;
+}
+
+.sr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sr-field--full {
+  grid-column: 1 / -1;
+}
+
+.sr-label {
+  font-size: 14px;
+  color: var(--text-strong);
+}
+
+.sr-input,
+.sr-textarea,
+.sr-select {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.55);
+  color: inherit;
+}
+
+.sr-textarea {
+  resize: vertical;
+}
+
+.sr-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sr-button {
+  font: inherit;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.sr-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sr-button--primary {
+  background: var(--accent);
+  color: white;
+}
+
+.sr-file-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sr-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sr-statusText {
+  color: var(--text-strong);
+}
+
+.sr-progressText {
+  opacity: 0.8;
+}
+
+.sr-hint {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.sr-viewer {
+  margin-top: 18px;
+  position: relative;
+  height: 56vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sr-word {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1ch minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0;
+  font-size: clamp(28px, 5vw, 64px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-variant-ligatures: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 0 16px;
+}
+
+.sr-left {
+  text-align: right;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sr-orp {
+  text-align: center;
+  width: 1ch;
+  justify-self: center;
+  color: #b00020;
+  font-weight: 700;
+}
+
+.sr-orp--muted {
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 600;
+}
+
+.sr-right {
+  text-align: left;
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Center guide line with a gap so it doesn't cut through the word */
+.sr-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  pointer-events: none;
+}
+
+.sr-rail::before,
+.sr-rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.sr-rail::before {
+  top: 18px;
+  height: calc(50% - clamp(110px, 14vh, 180px));
+}
+
+.sr-rail::after {
+  bottom: 18px;
+  height: calc(50% - clamp(110px, 14vh, 180px));
+}
+
+@media (min-width: 760px) {
+  .sr-controls {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  .sr-buttons {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

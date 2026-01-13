@@ -2,36 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Gustav Gille</title>
+  <title>About Gustav Gille</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="about.css">
-    <title>About Me</title>
-
 </head>
 
 <body>
-    <p id="about_me">About Me</p> 
-     <div class="about_me_grid">
-        <ul>
-        <div class="about_me_text">1st year masters student in <a href="https://www.chalmers.se/en/education/find-masters-programme/engineering-mathematics-and-computational-science-msc/">Engineering Mathematics and computional sciences</a></div>
-        </ul>
-    </div>
-     
-    <div class="dropdown">
-        <button class="dropdown_button">Topic</button>
-        <div class="dropdown_menu hide">
-          <a href="/about_me/years/2025.html">2025</a>
-          <a href="/about_me/years/books.html">Books</a>
-          <a href="/about_me/goals/goals.html">Goals</a>
+  <div class="page">
+    <a href="../index.html" id="goBack" class="kicker-link return-link">Return</a>
 
-        </div>        
+    <header class="header container">
+      <h1 class="title">About Me</h1>
+    </header>
+
+    <main class="section container">
+      <div class="about_me_grid card card--tight">
+        <p class="about_me_text">
+          2nd  year masters student in
+          <a href="https://www.chalmers.se/en/education/find-masters-programme/engineering-mathematics-and-computational-science-msc/">Engineering Mathematics and computional sciences</a>
+        </p>
       </div>
-    </div>
-    
 
+      <div class="dropdown">
+        <button class="dropdown_button" type="button">Topic</button>
+        <div class="dropdown_menu hide">
+          <a href="years/books.html">Books</a>
+          <a href="goals/goals.html">Goals</a>
+          <a href="years/2025.html">2025</a>
+        </div>
+      </div>
+    </main>
+  </div>
 
-    <a href="../index.html" id="goBack" style="display: flex; position: absolute; top: 10px; right: 10px; font-size: 40px;">Return</a> 
     <script src="about.js"></script>
 </body>
 </html>

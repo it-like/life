@@ -6,22 +6,39 @@ function displayLastUpdated() {
 
 const airplane = document.querySelector('.paper-airplane');
 let t = 0;
-const dt = 0.01;
+const dt = 0.02;
+
+function getAnchorRect() {
+  const header = airplane?.closest('header');
+  if (!header) {
+    return { width: window.innerWidth, height: window.innerHeight, left: 0 };
+  }
+  const rect = header.getBoundingClientRect();
+  // Width comes from viewport; left/height come from the header's actual position.
+  return { width: window.innerWidth, height: rect.height, left: rect.left };
+}
 
 function animate() {
+  if (!airplane) {
+    return;
+  }
+
   t -= dt;
-  
-  const centerX = window.innerWidth/2;
-  const centerY = window.innerHeight / 16;
-  const radius = Math.min(window.innerWidth, window.innerHeight)/1.5 ;
+
+  // Anchor to the page header so the airplane feels "attached".
+  const { width, height, left } = getAnchorRect();
+  // Convert viewport coordinates into the header's local coordinate system.
+  const centerX = width / 2 - left;
+  const centerY = height  * 1.8;
+  const radius = Math.min(width, height) * 2.5;
   
   // Figure-eight path (Lissajous-type)
   const x = centerX + radius * Math.sin(t);
   const y = centerY + (radius / 2) * Math.sin(2 * t);
   
   // Compute tangent for rotation (direction of travel)
-  const dx = radius * Math.cos(t);
-  const dy = radius * Math.cos(2 * t);
+  const dx = radius * Math.cos(t)*20;
+  const dy = radius * Math.cos(2 * t)*20;
   const angle = Math.atan2(dy, dx);
   
   // 3D tilt and scaling for perspective effect

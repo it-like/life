@@ -1,0 +1,7 @@
+{
+  "files": [
+    { "name": "test.txt", "label": "Test" },
+    { "name": "reddit_learning_tips.txt", "label": "Reddit learning tips" },
+    { "name": "crime_and_punishment.txt", "label": "Crime and Punishment (excerpt)" }
+  ]
+}

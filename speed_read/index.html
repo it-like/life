@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Speed Reader</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="speed_read.css" />
+</head>
+
+<body>
+  <div class="page">
+    <a href="../index.html" class="kicker-link return-link">Return</a>
+
+    <header class="header container">
+      <h1 class="title">Speed Reader</h1>
+      <p class="subtitle">One word at a time, fixed center, ORP highlighted.</p>
+    </header>
+
+    <main class="section container">
+      <section class="sr-controls card card--tight" aria-label="Controls">
+        <label class="sr-field">
+          <span class="sr-label">Sample texts</span>
+          <select id="srSampleSelect" class="sr-select" aria-label="Select sample text"></select>
+        </label>
+
+        <label class="sr-field">
+          <span class="sr-label">WPM (0–2000)</span>
+          <input id="srWpm" class="sr-input" type="number" min="0" max="2000" step="10" value="300" />
+        </label>
+
+        <div class="sr-buttons">
+          <button id="srLoadSample" class="sr-button" type="button">Load</button>
+          <button id="srUseText" class="sr-button" type="button">Use text</button>
+          <button id="srStartPause" class="sr-button sr-button--primary" type="button" disabled>Start</button>
+          <button id="srRestart" class="sr-button" type="button" disabled>Restart</button>
+        </div>
+
+        <label class="sr-field sr-field--full">
+          <span class="sr-label">Paste text</span>
+          <textarea id="srText" class="sr-textarea" rows="5" placeholder="Paste text here, then click “Use text”…"></textarea>
+        </label>
+
+        <label class="sr-field sr-field--full">
+          <span class="sr-label">Optional: Upload a .txt file (client-side only)</span>
+          <div class="sr-file-row">
+            <input id="srFile" class="sr-input" type="file" accept=".txt,text/plain" />
+            <button id="srUseFile" class="sr-button" type="button">Use file</button>
+          </div>
+        </label>
+
+        <div class="sr-status">
+          <span id="srStatus" class="sr-statusText">Paste text below and click “Use text”</span>
+          <span id="srProgress" class="sr-progressText"></span>
+        </div>
+
+        <div class="sr-hint">Shortcuts: <kbd>Space</kbd> play/pause, <kbd>←</kbd>/<kbd>→</kbd> back/forward (pauses)</div>
+      </section>
+
+      <section class="sr-viewer card" aria-label="Reader">
+        <div class="sr-rail" aria-hidden="true"></div>
+        <div class="sr-word" role="status" aria-live="polite" aria-atomic="true">
+          <span id="srLeft" class="sr-left"></span>
+          <span id="srOrp" class="sr-orp"></span>
+          <span id="srRight" class="sr-right"></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="page.js"></script>
+</body>
+</html>

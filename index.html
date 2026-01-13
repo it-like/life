@@ -7,48 +7,55 @@
 <meta charset="UTF-8">
 <title>Gustav Gille</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles/base.css">
 <link rel="stylesheet" href="index.css">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
  
  
-<body  onload="displayLastUpdated()">
-<h1 id="name_container">Gustav Gille</h1>  
+<body onload="displayLastUpdated()">
+  <div class="page">
+    <header class="header container">
+      <h1 class="title">Gustav Gille</h1>
 
-  <svg class="paper-airplane" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <polygon points="4,32 60,8 36,32 60,56" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  </svg>
-  
-  
-  
-<div class="main_hub">
-    <ul>
-         <a id="hubItem" href="https://arxiv.org/abs/2406.13008">ClaudesLens</a>
-         <a id="hubItem" href="https://linkedin.com/in/gustavgille/">LinkedIn</a>
-        <!-- <a id="hubItem" href="https://ankiweb.net/shared/by-author/279878234">Flashcards</a> -->
-         <a id="hubItem" href="https://github.com/it-like">GitHub</a>
-         <a id="hubItem" href="https://leetcode.com/u/IT-like/">Leetcode</a> 
-         <a id="hubItem" href="https://youtu.be/_-A4sdwZNR4">Fourier Series Simulation</a>
-         <div id = "only_on_desktop"><a id="hubItem" href="fourierDrawing/index.html">Drawing with Fourier Series WIP</a> </div>
-         <div id ="only_on_desktop"><a id="hubItem" href="flashcards/flashcards.html">Nonlinear Optimization Proofs and Theorems</a></div>
-         <div id ="only_on_desktop"><a id="hubItem" href="https://github.com/it-like/md_to_anki">Markdown2Anki</a></div>
-    </ul>
+      <svg class="paper-airplane" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+        <polygon points="4,32 60,8 36,32 60,56" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+      </svg>
+    </header>
 
-</div>
+    <main class="section container">
+      <div class="main_hub card card--tight">
+        <ul class="list hub-list">
+          <li><a class="hubItem" href="https://arxiv.org/abs/2406.13008">ClaudesLens</a></li>
+          <li><a class="hubItem" href="https://linkedin.com/in/gustavgille/">LinkedIn</a></li>
+          <!-- <li><a class="hubItem" href="https://ankiweb.net/shared/by-author/279878234">Flashcards</a></li> -->
+          <li><a class="hubItem" href="https://github.com/it-like">GitHub</a></li>
+          <li><a class="hubItem" href="https://leetcode.com/u/IT-like/">Leetcode</a></li>
+          <li><a class="hubItem" href="speed_read/index.html">Speed Reader</a></li>
+          <li><a class="hubItem" href="https://youtu.be/_-A4sdwZNR4">Fourier Series Simulation</a></li>
+          <li class="only_on_desktop"><a class="hubItem" href="fourierDrawing/index.html">Drawing with Fourier Series WIP</a></li>
+          <li class="only_on_desktop"><a class="hubItem" href="flashcards/flashcards.html">Nonlinear Optimization Proofs and Theorems</a></li>
+          <li class="only_on_desktop"><a class="hubItem" href="https://github.com/it-like/md_to_anki">Markdown2Anki</a></li>
+        </ul>
+      </div>
 
-<div class="misc"><a href="about_me/about.html">About me</a ></div>
-<div class="misc"><a href="about_me/cv.html">CV</a></div>
+      <div class="misc">
+        <a class="kicker-link" href="about_me/about.html">About me</a>
+      </div>
+      <div class="misc">
+        <a class="kicker-link" href="about_me/cv.html">CV</a>
+      </div>
+    </main>
 
-<div class ="bottom-container">
+    <footer class="footer container">
+      <div class="footer-row small">
+        <div id="email">gustav.gille"at"gmail.com</div>
+        <div id="lastUpdatedContainer">Last updated <span id="lastUpdated"></span></div>
+      </div>
+    </footer>
+  </div>
 
-    <div id="email">gustav.gille"at"gmail.com</div>
-    <div id="lastUpdatedContainer"> Last updated <span id="lastUpdated"></span> 
-<script src="index.js"></script>
-
-
-
-
-
+  <script src="index.js"></script>
 </body>
 
 </html> 

@@ -1,176 +1,108 @@
-/*about.css*/
-:root{
-    --width: 200px;
-    --color:black;
-}
-*{
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #FED8B1;
+/* about.css - About section styles (base theme lives in ../styles/base.css) */
+
+:root {
+    --width: 220px;
 }
 
-body{
-    background-color: #FED8B1;
-    color: grey;
+.return-link {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
 }
 
-#about_me{
+.about_me_grid {
+    width: min(720px, 100%);
+    margin: 0 auto;
+}
+
+.about_me_text {
+    margin: 0;
     text-align: center;
-    color:goldenrod;
-    margin: auto;
-    margin-top: 80px;
-    font-size: 60px;
-    font-weight: bold;
+    font-size: 22px;
+    line-height: 1.6;
 }
-
-#aboutMeList{
-    color: black;
-    position: inherit;
-    border-color: black;
-    
-    
-}
-
-a{
-    color: grey;
-}
-a:hover{
-    color: black;
-}
-
-
-
-#bookListContainer{
-    position:absolute;
-    color: black;
-}
-
-
-#bookListContainer{
-    position: absolute;
-    display: block;
-    z-index: 0;
-    padding: 10px;
-    left: 350px;
-}
-
-.about_me_grid{
-    display: grid;
-    width: 600px;
-    font-size: 25px;
-    margin: auto;
-    grid-template-columns: 1fr; 
-    grid-auto-rows: auto;       
-    
-    justify-content: start;     
-    align-content: start;       
-    /*border-radius: 10px;
-
-    border: solid;
-    border-color: gray;*/
-}
-
-#title{
-    color: inherit;
-    margin: auto;
-    margin-top: 40px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 30px;
-    
-}
-.book_grid{ /*need for 2024 html */
-    display: grid;
-    width: 300px;
-    margin: auto;
-    grid-template-columns:  repeat(auto-fit);
-    grid-template-rows:     repeat(auto-fit);
-    grid-auto-flow: row;
-    justify-content:    center;
-    align-content: center;
-    border-radius: 5px;
-    gap: 10px;
-    font-size: 25px;
-    margin-top: 20px;
-
-}
-
-.about_me_text{
-    margin: auto;
-    text-align: center;
-    padding: 9px;         
-    font-size: 30px;
-}
-#goals{
-    text-align: center;
-    font-size: 30px;
-    margin-top: 20px;
-}
-
-
 
 .dropdown {
-    margin: auto;
+    margin: 28px auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  .dropdown_menu {
-    display: flex;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    padding: 20px;
-    width: 250px; 
-    border-radius: 6px;
-    height: 500px; 
-    font-size: 40px;
-    flex-direction: column;
-  }
-  .dropdown_button {
-    background-color: goldenrod;
-    color: white;
-    font-size: 20px;
-    width: var(--width);
-    text-align: center;
-    height: 60px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: none;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-  }
-  
-  .dropdown_button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  /* Slightly darken links on hover */
-.dropdown_menu a {
-    background-color: inherit;
-    opacity: 0;
-    margin-top: 75px;
-    transform: translateY(-20px); /* Start slightly off-screen */
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-  .dropdown_menu a:hover {
-    color: black;
-  }
-  
+.dropdown_button {
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    width: var(--width);
+    text-align: center;
+    height: 52px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: var(--shadow);
+    transition: transform 0.08s ease, filter 0.15s ease;
+}
+
 .dropdown_button:hover {
-    background-color: darkgoldenrod;
+    filter: brightness(0.95);
+}
 
-  }
-  
-  .dropdown_menu.hide {
+.dropdown_button:active {
+    transform: translateY(1px);
+}
+
+.dropdown_menu {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(520px, 100%);
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow);
+}
+
+/* Animated links (driven by about.js) */
+.dropdown_menu a {
     opacity: 0;
-    border: none;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 14px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 22px;
+}
 
-  }
+.dropdown_menu a:hover {
+    background: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+}
+
+.dropdown_menu.hide {
+    display: none;
+}
+
+/* Used by years/books.html and goals.html */
+.book_grid {
+    width: min(720px, 100%);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    font-size: 18px;
+}
+
+#title {
+    margin: 22px 0 8px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-strong);
+    font-size: 20px;
+}
   
 
   

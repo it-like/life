@@ -1,0 +1,135 @@
+/* base.css - shared theme + layout primitives */
+
+:root {
+  --bg: #FED8B1;
+  --text: #4a4a4a;
+  --text-strong: #222;
+
+  --accent: goldenrod;
+
+  --border: rgba(0, 0, 0, 0.12);
+  --surface: rgba(255, 255, 255, 0.28);
+  --surface-strong: rgba(255, 255, 255, 0.40);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 14px 28px rgba(0, 0, 0, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: #000;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header {
+  padding-top: 56px;
+  padding-bottom: 14px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.subtitle {
+  margin: 10px auto 0;
+  max-width: 64ch;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.section {
+  padding: 12px 0 28px;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 18px 0 28px;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.card {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.card--tight {
+  padding: 18px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kicker-link {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+.kicker-link:hover {
+  text-decoration: none;
+}
+
+kbd {
+  font-family: inherit;
+  font-size: 0.95em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.5);
+}
